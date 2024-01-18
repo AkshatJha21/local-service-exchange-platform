@@ -2,6 +2,7 @@
 
 import { CreateCommunityModal } from "@/components/modals/create-community-modal";
 import { useEffect, useState } from "react";
+import { InviteModal } from "@/components/modals/invite-modal";
 
 export const ModalProvider = () => {
 
@@ -18,6 +19,7 @@ export const ModalProvider = () => {
     return (
         <>
             <CreateCommunityModal />
+            <InviteModal />
         </>
     )
 }
