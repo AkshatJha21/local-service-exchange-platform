@@ -3,7 +3,8 @@
 import { CreateCommunityModal } from "@/components/modals/create-community-modal";
 import { useEffect, useState } from "react";
 import { InviteModal } from "@/components/modals/invite-modal";
-import { EditCommunityModal } from "../modals/edit-comm-modal";
+import { EditCommunityModal } from "@/components/modals/edit-comm-modal";
+import { MembersModal } from "@/components/modals/members-modal";
 
 export const ModalProvider = () => {
 
@@ -22,6 +23,7 @@ export const ModalProvider = () => {
             <CreateCommunityModal />
             <InviteModal />
             <EditCommunityModal />
+            <MembersModal />
         </>
     )
 }
