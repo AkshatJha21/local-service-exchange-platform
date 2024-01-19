@@ -34,7 +34,7 @@ export const CommunityHeader = ({ community, role }: CommunityHeaderProps) => {
                     </DropdownMenuItem>
                 )}
                 {isAdmin && (
-                    <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem onClick={() =>onOpen("editCommunity", { community })} className="px-3 py-2 text-sm cursor-pointer">
                         Community Settings
                         <Settings className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
