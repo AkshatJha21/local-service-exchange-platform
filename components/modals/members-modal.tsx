@@ -31,7 +31,7 @@ import { useRouter } from "next/navigation";
 
 const roleIconMap = {
     "GUEST": null,
-    "MODERATOR": <ShieldHalf className="h-4 w-4 ml-2 text-emerald-500"/>,
+    "TRADER": <ShieldHalf className="h-4 w-4 ml-2 text-emerald-500"/>,
     "ADMIN": <Crown className="h-4 w-4 ml-2 text-rose-500"/>
 }
 
@@ -131,10 +131,10 @@ export const MembersModal = () => {
                                                                 <Check className="h-4 w-4 ml-auto"/>
                                                             )}
                                                         </DropdownMenuItem>
-                                                        <DropdownMenuItem onClick={() => onRoleChange(member.id, "MODERATOR")}>
+                                                        <DropdownMenuItem onClick={() => onRoleChange(member.id, "TRADER")}>
                                                             <ShieldHalf className="h-4 w-4 mr-2"/>
-                                                            Moderator 
-                                                            {member.role === "MODERATOR" && (
+                                                            Trader 
+                                                            {member.role === "TRADER" && (
                                                                 <Check className="h-4 w-4 ml-auto"/>
                                                             )}
                                                         </DropdownMenuItem>

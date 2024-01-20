@@ -16,7 +16,7 @@ export const CommunityHeader = ({ community, role }: CommunityHeaderProps) => {
     const { onOpen } = useModal();
 
     const isAdmin = role === MemberRole.ADMIN;
-    const isModerator = isAdmin || role === MemberRole.MODERATOR;
+    const isTrader = isAdmin || role === MemberRole.TRADER;
     
     return (
         <DropdownMenu>
@@ -27,7 +27,7 @@ export const CommunityHeader = ({ community, role }: CommunityHeaderProps) => {
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
-                {isModerator && (
+                {isTrader && (
                     <DropdownMenuItem onClick={() => onOpen("invite", { community })} className="text-emerald-600 dark:text-emerald-400 px-3 py-2 text-sm cursor-pointer">
                         Invite People
                         <UserPlus className="h-4 w-4 ml-auto"/>
@@ -45,13 +45,13 @@ export const CommunityHeader = ({ community, role }: CommunityHeaderProps) => {
                         <Users className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
                 )}
-                {isModerator && (
+                {isTrader && (
                     <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
                         Add Trade
                         <PlusCircle className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
                 )}
-                {isModerator && (
+                {isTrader && (
                     <DropdownMenuSeparator />
                     )}
                 {isAdmin && (

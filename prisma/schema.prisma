@@ -41,7 +41,7 @@ model Community {
 
 enum MemberRole {
   ADMIN
-  MODERATOR
+  TRADER
   GUEST
 }
 
