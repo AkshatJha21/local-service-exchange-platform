@@ -6,6 +6,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { CommunitySearch } from "./comm-search";
 import { MemberRole } from "@prisma/client";
 import { Crown, ShieldHalf, User, Wrench } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { CommunitySection } from "./comm-section";
+import { CommunityTrade } from "./comm-trade";
+import { CommunityMember } from "./comm-member";
 
 interface CommunitySidebarProps {
     communityId: string;
@@ -83,6 +87,27 @@ export const CommunitySidebar = async ({ communityId }: CommunitySidebarProps) =
                         ]}
                     />
                 </div>
+                <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2"/>
+                {!!trades?.length && (
+                    <div className="mb-2">
+                        <CommunitySection sectionType="trades" role={role} label="Trades" />
+                        <div className="space-y-[2px]">
+                            {trades.map((trade) => (
+                                <CommunityTrade key={trade.id} trade={trade} role={role} community={community} />
+                                ))}
+                        </div>
+                    </div>
+                )}
+                {!!members?.length && (
+                    <div className="mb-2">
+                        <CommunitySection sectionType="members" role={role} label="Members" community={community}/>
+                        <div className="space-y-[2px]">
+                            {members.map((member) => (
+                                <CommunityMember key={member.id} member={member} community={community}/>
+                                ))}
+                        </div>
+                    </div>
+                )}
             </ScrollArea>
         </div>
     )
