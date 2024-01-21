@@ -6,6 +6,8 @@ import { InviteModal } from "@/components/modals/invite-modal";
 import { EditCommunityModal } from "@/components/modals/edit-comm-modal";
 import { MembersModal } from "@/components/modals/members-modal";
 import { AddTradeModal } from "@/components/modals/add-trade-modal";
+import { LeaveCommunityModal } from "../modals/leave-comm-modal";
+import { DeleteCommunityModal } from "../modals/delete-comm-modal";
 
 export const ModalProvider = () => {
 
@@ -26,6 +28,8 @@ export const ModalProvider = () => {
             <EditCommunityModal />
             <MembersModal />
             <AddTradeModal />
+            <LeaveCommunityModal />
+            <DeleteCommunityModal />
         </>
     )
 }

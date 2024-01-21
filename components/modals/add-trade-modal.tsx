@@ -95,7 +95,7 @@ export const AddTradeModal = () => {
                                 </FormItem>
                             )}/>
                         </div>
-                        <DialogFooter className="bg-gray-100 px-6 py-4">
+                        <DialogFooter className="px-6 py-4">
                             <Button disabled={isLoading} variant="primary">
                                 Create
                             </Button>

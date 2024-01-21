@@ -28,3 +28,25 @@ export async function PATCH(req: Request, { params }: { params: { communityId: s
         return new NextResponse("Internal Error", { status: 500 });
     }
 }
+
+export async function DELETE(req: Request, { params }: { params: { communityId: string } }) {
+    try {
+        const profile = await currentProfile();
+
+        if (!profile) {
+            return new NextResponse("Unauthorized", { status: 401 });
+        }
+
+        const community = await db.community.delete({
+            where: {
+                id: params.communityId,
+                profileId: profile.id
+            }
+        });
+
+        return NextResponse.json(community);
+    } catch (error) {
+        console.log("[COMMUNITY_ID_DELETE]", error);
+        return new NextResponse("Internal Error", { status: 500 });
+    }
+}
