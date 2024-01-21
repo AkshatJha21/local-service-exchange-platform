@@ -104,7 +104,7 @@ export const EditTradeModal = () => {
                         </div>
                         <DialogFooter className="px-6 py-4">
                             <Button disabled={isLoading} variant="primary">
-                                Create
+                                Save
                             </Button>
                         </DialogFooter>
                     </form>
