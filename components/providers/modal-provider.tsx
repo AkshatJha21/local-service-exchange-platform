@@ -6,8 +6,10 @@ import { InviteModal } from "@/components/modals/invite-modal";
 import { EditCommunityModal } from "@/components/modals/edit-comm-modal";
 import { MembersModal } from "@/components/modals/members-modal";
 import { AddTradeModal } from "@/components/modals/add-trade-modal";
-import { LeaveCommunityModal } from "../modals/leave-comm-modal";
-import { DeleteCommunityModal } from "../modals/delete-comm-modal";
+import { LeaveCommunityModal } from "@/components/modals/leave-comm-modal";
+import { DeleteCommunityModal } from "@/components/modals/delete-comm-modal";
+import { DeleteTradeModal } from "@/components/modals/delete-trade-modal";
+import { EditTradeModal } from "@/components/modals/edit-trade-modal";
 
 export const ModalProvider = () => {
 
@@ -30,6 +32,8 @@ export const ModalProvider = () => {
             <AddTradeModal />
             <LeaveCommunityModal />
             <DeleteCommunityModal />
+            <DeleteTradeModal />
+            <EditTradeModal />
         </>
     )
 }
