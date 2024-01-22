@@ -84,7 +84,7 @@ model Trade {
 model Service {
   id String @id @default(uuid())
   name String
-  author String
+  imageUrl String @db.Text
   details String
   price Decimal
   createdAt DateTime @default(now())
@@ -99,20 +99,7 @@ model Service {
   communityId String
   community Community @relation(fields: [communityId], references: [id])
 
-  images Image[]
-
   @@index([profileId])
   @@index([tradeId])
   @@index([communityId])
-}
-
-model Image {
-  id String @id @default(uuid())
-  serviceId String
-  service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
-  url String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([serviceId])
 }

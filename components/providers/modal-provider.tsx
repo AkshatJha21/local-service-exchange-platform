@@ -10,6 +10,7 @@ import { LeaveCommunityModal } from "@/components/modals/leave-comm-modal";
 import { DeleteCommunityModal } from "@/components/modals/delete-comm-modal";
 import { DeleteTradeModal } from "@/components/modals/delete-trade-modal";
 import { EditTradeModal } from "@/components/modals/edit-trade-modal";
+import { CreateServiceModal } from "../modals/create-service-modal";
 
 export const ModalProvider = () => {
 
@@ -34,6 +35,7 @@ export const ModalProvider = () => {
             <DeleteCommunityModal />
             <DeleteTradeModal />
             <EditTradeModal />
+            <CreateServiceModal />
         </>
     )
 }

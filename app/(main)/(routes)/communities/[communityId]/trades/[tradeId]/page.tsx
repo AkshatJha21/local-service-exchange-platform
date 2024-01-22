@@ -1,5 +1,6 @@
+import { AddServiceButton } from "@/components/service/add-service-btn";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useModal } from "@/hooks/use-modal-store";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
@@ -46,10 +47,7 @@ const TradeIdPage = async ({ service, params }: TradeIdProps) => {
                     </div>
                 </div>
             </div>
-            <Button className="absolute bottom-4 right-4 bg-emerald-500 hover:bg-emerald-700 shadow-md">
-                <Plus className="h-4 w-4 mr-2"/>
-                Add New Service
-            </Button>
+            <AddServiceButton />
         </div>
     );
 }

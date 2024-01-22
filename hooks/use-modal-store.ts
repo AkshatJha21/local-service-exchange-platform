@@ -1,11 +1,12 @@
-import { Community, Trade } from "@prisma/client";
+import { Community, Service, Trade } from "@prisma/client";
 import { create } from "zustand";
 
-export type ModalType = "createCommunity" | "invite" | "editCommunity" | "members" | "addTrade" | "leaveCommunity" | "deleteCommunity" | "deleteTrade" | "editTrade";
+export type ModalType = "createCommunity" | "invite" | "editCommunity" | "members" | "addTrade" | "leaveCommunity" | "deleteCommunity" | "deleteTrade" | "editTrade" | "addService";
 
 interface ModalData {
     community?: Community;
     trade?: Trade;
+    service?: Service;
 }
 
 interface ModalStore {
