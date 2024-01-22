@@ -23,9 +23,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { FileUpload } from "@/components/file-upload";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
 import { Service } from "@prisma/client";
+import qs from "query-string";
 
 interface CreateServiceProps {
     data: Service;
@@ -48,6 +49,7 @@ export const CreateServiceModal = ({ data }: CreateServiceProps) => {
 
     const { isOpen, onClose, type } = useModal();
     const router = useRouter();
+    const params = useParams();
 
     const isModalOpen = isOpen && type === "addService";
 
@@ -68,7 +70,14 @@ export const CreateServiceModal = ({ data }: CreateServiceProps) => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("/api/communities", values);
+            const url = qs.stringifyUrl({
+                url: '/api/services',
+                query: {
+                    communityId: params?.communityId,
+                    tradeId: params?.tradeId,
+                }
+            })
+            await axios.post(url, values); 
 
             form.reset();
             router.refresh();

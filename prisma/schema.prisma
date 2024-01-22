@@ -23,24 +23,6 @@ model Profile {
   services Service[]
 }
 
-model Community {
-  id String @id @default(uuid())
-  name String
-  imageUrl String @db.Text
-  inviteCode String @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  members Member[]
-  trades Trade[]
-  services Service[]
-
-  profileId String
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  @@index([profileId])
-}
-
 enum MemberRole {
   ADMIN
   TRADER
@@ -61,6 +43,24 @@ model Member {
 
   @@index([profileId])
   @@index([communityId])
+}
+
+model Community {
+  id String @id @default(uuid())
+  name String
+  imageUrl String @db.Text
+  inviteCode String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members Member[]
+  trades Trade[]
+  services Service[]
+
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId])
 }
 
 model Trade {
