@@ -1,18 +1,16 @@
 import { AddServiceButton } from "@/components/service/add-service-btn";
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
-import { useModal } from "@/hooks/use-modal-store";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
-import { Service } from "@prisma/client";
 import Image from "next/image";
 
 interface TradeIdProps {
     params: {
         tradeId: string;
         serviceId: string;
-    }
+    };
 }
 
 const TradeIdPage = async ({ params }: TradeIdProps) => {
@@ -41,9 +39,8 @@ const TradeIdPage = async ({ params }: TradeIdProps) => {
             <h1 className="text-xl font-semibold my-2 ml-4">{trade?.name}</h1>
             <div className="container px-5 py-14 mx-auto">
                 <div className="flex flex-wrap gap-x-4 gap-y-4">
-                
                 {services.map((service) => (
-                    <div className="lg:w-[250px] md:w-3/5 p-4 w-full shadow-lg rounded-md border dark:border-zinc-700/20">
+                    <div className="lg:w-[250px] md:w-3/5 p-2 w-full shadow-lg rounded-md border dark:border-zinc-700/20">
                         <div className="block relative h-40 rounded overflow-hidden">
                             <Image fill src={service.imageUrl} alt="service"/>
                         </div>
