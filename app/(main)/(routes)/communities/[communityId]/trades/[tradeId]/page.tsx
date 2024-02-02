@@ -5,11 +5,14 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 
 interface TradeIdProps {
     params: {
         tradeId: string;
         serviceId: string;
+        profileId: string;
+        communityId: string;
     };
 }
 
@@ -46,11 +49,15 @@ const TradeIdPage = async ({ params }: TradeIdProps) => {
                         </div>
                         <div className="mt-4 flex flex-col">
                             <h2 className="text-primary title-font text-lg font-medium">{service.name}</h2>
-                            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{service.profileId}</h3>
+                            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">By {profile.name}</h3>
                             <p className="mt-1">
                                 <Currency value={service?.price}/>
                             </p>
-                            <Button className="mt-2 ml-auto bg-emerald-500 hover:bg-emerald-700">View</Button>
+                            <Button className="mt-2 ml-auto bg-emerald-500 hover:bg-emerald-700">
+                                <Link href={`/communities/${params?.communityId}/trades/${trade?.id}/services/${service?.id}`}>
+                                    View
+                                </Link>
+                            </Button>
                         </div>
                     </div>
                 ))}
