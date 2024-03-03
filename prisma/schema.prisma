@@ -94,10 +94,10 @@ model Service {
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   tradeId String
-  trade Trade @relation(fields: [tradeId], references: [id])
+  trade Trade @relation(fields: [tradeId], references: [id], onDelete: Cascade)
 
   communityId String
-  community Community @relation(fields: [communityId], references: [id])
+  community Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
   @@index([profileId])
   @@index([tradeId])
