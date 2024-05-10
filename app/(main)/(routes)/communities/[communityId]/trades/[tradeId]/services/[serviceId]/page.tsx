@@ -73,9 +73,11 @@ const ServiceIdPage = async ({ params }: ServiceIdProps) => {
                         <p className="text-sm">By {profile.name}</p>
                         <p className="flex gap-x-2">at <Currency value={service?.price}/></p>
                     </div>
-                    <Button className="my-auto bg-emerald-500 hover:bg-emerald-700">
-                        Hire Now
-                    </Button>
+                    <Link href="https://buy.stripe.com/test_eVag0x7sRduG7OEfZ7">
+                        <Button className="my-auto bg-emerald-500 hover:bg-emerald-700">
+                            Hire Now
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>
